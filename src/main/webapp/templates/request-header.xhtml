@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+
+<f:view>
+    <div class="header-div">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ui:fragment rendered="${userController.hasRole('USER')}">
+                        <div style="width: 50%">
+                            <ul class="nav navbar-nav" >
+                                <li class="colored" >
+                                    <h:form>
+
+                                        <p:commandLink actionListener="#{requestController.addAction()}" title="Добавить заявку"
+                                                       styleClass="new-book-item" process="@form">
+                                            <p:outputLabel value="Добавить заявку" styleClass="new-book-label"/>
+                                        </p:commandLink>
+
+                                    </h:form>
+                                </li>
+                            </ul>
+                        </div>
+                    </ui:fragment>
+
+                    <div style="width:50%; float: right">
+
+                        <ui:include src="../part/logout.xhtml"/>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</f:view>
+</html>
